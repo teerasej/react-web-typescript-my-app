@@ -34,11 +34,12 @@ export default function LoginPage() {
     });
     const history = useHistory();
 
+
     const goRegisterPage = () => {
         history.push('/signup');
     }
 
-    const startAuthentication = () => {
+    const startAuthentication = (json:any) => {
         // authen with api 
 
         // store token 
@@ -50,20 +51,41 @@ export default function LoginPage() {
 
         <div>
             <h1>Login: </h1>
-            <p>Email:</p>
-            <TextField />
-            <p>Password:</p>
-            <TextField />
-            <div>
-                <Button variant="contained" onClick={startAuthentication}>
-                    Sign in
-                </Button>
-            </div>
-            <div>
-                <Button onClick={goRegisterPage}>
-                    Create Account?
-                </Button>
-            </div>
+            <form onSubmit={formik.handleSubmit}>
+                <div>
+                    <TextField
+                        id="email"
+                        name="email"
+                        label="Email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        error={formik.touched.email && Boolean(formik.errors.email)}
+                        helperText={formik.touched.email && formik.errors.email}
+                    />
+                </div>
+                <div>
+                    <TextField
+                        id="password"
+                        name="password"
+                        label="Password"
+                        type="password"
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
+                        error={formik.touched.password && Boolean(formik.errors.password)}
+                        helperText={formik.touched.password && formik.errors.password}
+                    />
+                </div>
+                <div>
+                    <Button variant="contained" type="submit">
+                        Sign in
+                    </Button>
+                </div>
+                <div>
+                    <Button onClick={goRegisterPage}>
+                        Create Account?
+                    </Button>
+                </div>
+            </form>
         </div>
     )
 }
