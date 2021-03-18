@@ -7,6 +7,12 @@ function App() {
 
   const [onLoading, setOnLoading] = useState(true);
   
+  useEffect(() => {
+    // check token 
+
+    setOnLoading(false);
+  }, [])
+
 
   if(onLoading) {
     return (
