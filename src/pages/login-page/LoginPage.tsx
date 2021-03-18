@@ -10,6 +10,14 @@ export default function LoginPage() {
         history.push('/signup');
     }
 
+    const startAuthentication = () => {
+        // authen with api 
+
+        // store token 
+
+        history.push('/');
+    }
+
     return (
 
         <div>
@@ -19,7 +27,7 @@ export default function LoginPage() {
             <p>Password:</p>
             <TextField />
             <div>
-                <Button variant="contained">
+                <Button variant="contained" onClick={startAuthentication}>
                     Sign in
                 </Button>
             </div>
