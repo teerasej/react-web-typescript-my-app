@@ -1,41 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { CircularProgress } from '@material-ui/core';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory
+} from "react-router-dom";
+import RegisterPage from './pages/register-page/RegisterPage';
 import LoginPage from './pages/login-page/LoginPage';
+import Main from './pages/Main';
 
 function App() {
 
-  const [onLoading, setOnLoading] = useState(true);
-  const [alreadySingIn, setAlreadySingIn] = useState(false);
-  
-  useEffect(() => {
-    // check token 
 
-    setOnLoading(false);
-  }, [])
-
-
-  if(onLoading) {
     return (
-      <div className="App">
-        <CircularProgress/>
-      </div>
+      <Router>
+        <Switch>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/signup">
+            <RegisterPage />
+          </Route>
+          <Route path="/">
+            <Main/>
+          </Route>
+        </Switch>
+      </Router>
     );
-  } else {
 
-    if(alreadySingIn) {
-      return (
-        <div>app</div>
-      );
-    } else {
-      return (
-        <LoginPage/>
-      );
-    }
-    
   }
-  
-}
+
+
 
 export default App;
