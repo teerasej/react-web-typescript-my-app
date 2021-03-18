@@ -15,6 +15,11 @@ export default function LoginPage() {
                     Sign in
                 </Button>
             </div>
+            <div>
+                <Button>
+                    Create Account?
+                </Button>
+            </div>
         </div>
     )
 }
