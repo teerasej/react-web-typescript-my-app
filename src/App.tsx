@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { CircularProgress } from '@material-ui/core';
+import LoginPage from './pages/login-page/LoginPage';
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
       );
     } else {
       return (
-        <div>login form</div>
+        <LoginPage/>
       );
     }
     
