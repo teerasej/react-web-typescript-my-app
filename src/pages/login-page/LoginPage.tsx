@@ -1,7 +1,15 @@
 import { Button, TextField } from '@material-ui/core'
 import React from 'react'
+import { useHistory } from 'react-router'
 
 export default function LoginPage() {
+
+    const history = useHistory();
+
+    const goRegisterPage = () => {
+        history.push('/signup');
+    }
+
     return (
 
         <div>
@@ -16,7 +24,7 @@ export default function LoginPage() {
                 </Button>
             </div>
             <div>
-                <Button>
+                <Button onClick={goRegisterPage}>
                     Create Account?
                 </Button>
             </div>
