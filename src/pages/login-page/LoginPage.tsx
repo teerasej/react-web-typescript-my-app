@@ -18,6 +18,20 @@ export default function LoginPage() {
             .min(8, 'Password should be of minimum 8 characters length')
             .required('Password is required'),
     });
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values) => {
+            
+            const jsonFormData = JSON.stringify(values, null, 2);
+            console.log('Login Form:', jsonFormData);
+            startAuthentication(jsonFormData);
+        },
+    });
     const history = useHistory();
 
     const goRegisterPage = () => {
