@@ -6,6 +6,7 @@ import { CircularProgress } from '@material-ui/core';
 function App() {
 
   const [onLoading, setOnLoading] = useState(true);
+  const [alreadySingIn, setAlreadySingIn] = useState(false);
   
   useEffect(() => {
     // check token 
@@ -21,9 +22,17 @@ function App() {
       </div>
     );
   } else {
-    return (
-      <div>ok</div>
-    );
+
+    if(alreadySingIn) {
+      return (
+        <div>app</div>
+      );
+    } else {
+      return (
+        <div>login form</div>
+      );
+    }
+    
   }
   
 }
