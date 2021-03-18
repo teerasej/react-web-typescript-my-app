@@ -1,7 +1,10 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@material-ui/core'
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
 
 export default function RegisterPage() {
+
+    const history = useHistory();
 
     const [onRegisterSuccesful, setOnRegisterSuccesful] = useState(false);
 
@@ -9,6 +12,9 @@ export default function RegisterPage() {
         setOnRegisterSuccesful(true);
     }
 
+    const onConfirmRegistration = () => {
+        history.push('/login');
+    }
 
 
     return (
@@ -36,7 +42,7 @@ export default function RegisterPage() {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button  color="primary">
+                    <Button onClick={onConfirmRegistration} color="primary">
                         ok
           </Button>
                 </DialogActions>
